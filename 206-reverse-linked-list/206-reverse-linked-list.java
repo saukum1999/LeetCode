@@ -8,32 +8,62 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
 class Solution {
     public ListNode reverseList(ListNode head) {
         
-        ListNode forward = new ListNode();
-        ListNode dummy = new ListNode();
-        if (head == null || head.next == null )
+        if(head == null)
             return head;
-        forward = head.next;
-        dummy = null;
+
+        ListNode temp = new ListNode();
+        ListNode rev = new ListNode();
+
         
-        while (true){
-            
-            if(forward == null){
-                head.next = dummy;
-                break;
-            }
-            head.next = dummy;
-            dummy = head;
-            head = forward;
-            forward = forward.next;
-            
-            
+        temp = head;
+        rev = head;
+        head = head.next;
+        temp.next=null;
+        
+        while(head != null){
+
+            temp = head;
+            head = head.next;
+            temp.next = rev;
+            rev = temp;
         }
-        
-        return head;
-        
-        
+
+        return rev;
+
     }
 }
+
+
+// class Solution {
+//     public ListNode reverseList(ListNode head) {
+        
+//         ListNode forward = new ListNode();
+//         ListNode dummy = new ListNode();
+//         if (head == null || head.next == null )
+//             return head;
+//         forward = head.next;
+//         dummy = null;
+        
+//         while (true){
+            
+//             if(forward == null){
+//                 head.next = dummy;
+//                 break;
+//             }
+//             head.next = dummy;
+//             dummy = head;
+//             head = forward;
+//             forward = forward.next;
+            
+            
+//         }
+        
+//         return head;
+        
+        
+//     }
+// }
