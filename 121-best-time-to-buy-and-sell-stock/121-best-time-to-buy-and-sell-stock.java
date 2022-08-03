@@ -32,7 +32,6 @@ class Solution {
             b= prices[i];
             if(b<a)
                 a=b;
-            else
                 max = Math.max(max,b-a);
         }
 
