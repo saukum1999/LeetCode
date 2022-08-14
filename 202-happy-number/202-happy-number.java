@@ -13,14 +13,15 @@ class Solution {
         
         HashSet<Integer> set = new HashSet<>();
         set.add(n);
-        while(true){
+        while(n!=1){
             n = nextNum(n);
-            if(n==1)
-                return true;
-            else if(set.contains(n))
+            if(set.contains(n))
                 return false;
             else
                 set.add(n);
         }
+                    // if(n==1)
+                return true;
+
     }
 }
