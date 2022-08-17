@@ -13,17 +13,15 @@ class Solution {
         
         if(head == null || head.next == null)
             return head;
-        
-        // if( head.next.next!=null){
+
         ListNode odd = new ListNode();
         ListNode even = new ListNode();
         ListNode res = head;
         ListNode odd_start = head;
         ListNode even_start = head.next;
-        // }
+
         while(head.next != null && head.next.next != null){
-            // head = res;
-            // res = res.
+
             if(odd!=null)           
                 odd.next = head;
             odd = head;
@@ -43,16 +41,7 @@ class Solution {
             even = head.next;
             }
         }
-        
-//         if(head.next != null){
-//             even.next = head.next;
-            
-//         }
-            
         odd.next = even_start;
-        
-        
         return odd_start;
-        
     }
 }
