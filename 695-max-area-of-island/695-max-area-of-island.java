@@ -6,7 +6,7 @@ class Solution {
         int res = 0;
         for(int i = 0; i<grid.length; i++){
             for(int j = 0; j < grid[0].length; j++){
-                if(!visited[i][j]){
+                if(grid[i][j] == 1){
                     count = dfs(grid, visited, i, j, 0);
                     res = Math.max(res, count);
                     visited[i][j] = true;
