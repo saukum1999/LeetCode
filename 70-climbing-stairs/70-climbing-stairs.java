@@ -11,7 +11,6 @@ class Solution {
         int [] sol = new int[n+1];
         sol[1] = 1;
         sol[2] = 2;
-        // sol[2] = 2;
         
         for(int i=3 ; i <=n ; i++){
             sol[i] = sol[i-1] + sol[i-2];
