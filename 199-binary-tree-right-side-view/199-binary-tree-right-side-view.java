@@ -20,12 +20,10 @@ class Solution {
         Queue<TreeNode> que = new LinkedList<>();
         if(root == null)
             return res;     
-        // res.add(root.val);
         que.offer(root);
         int len = que.size();
         
         while(!que.isEmpty()){
-            // int len = que.size();
             TreeNode temp = que.poll();
             len--;
             if(temp.left != null) que.offer(temp.left);
@@ -35,19 +33,7 @@ class Solution {
                 len = que.size();
             }
         }
-        
-        
         return res;
-        
     }
-    
-    // public void traverse(TreeNode root, List<Integer> res){
-    //     if(root == null)
-    //         return;
-    //     res.add(root.val);
-    //     if(root.right == null && root.left != null)
-    //         traverse(root.left, res);
-    //     else
-    //     traverse(root.right, res);
-    // }
+
 }
