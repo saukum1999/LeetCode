@@ -6,20 +6,20 @@ class Solution {
         
         int sum = Integer.MAX_VALUE;
         for(int a = 0; a < nums.length-2; a++){
-            // if(a >0 && nums[a] == nums[a-1])
-            //     continue;
+            if(a >0 && nums[a] == nums[a-1])
+                continue;
             int b = a + 1;
             int c = len;
                         
             while(b<c){
-                // if(b-a > 1 && nums[b] == nums[b-1]){
-                //     b++;
-                //     continue;
-                // }
-                // else if(c < len-2 && nums[c] == nums[c+1]){
-                //     c--;
-                //     continue;
-                // }
+                if(b-a > 1 && nums[b] == nums[b-1]){
+                    b++;
+                    continue;
+                }
+                else if(c < len-2 && nums[c] == nums[c+1]){
+                    c--;
+                    continue;
+                }
                 sum = nums[a] + nums[b] + nums[c];
                 if(sum < target)
                     b++;
