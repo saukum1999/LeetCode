@@ -1,22 +1,30 @@
 class Solution {
     public boolean canJump(int[] nums) {
         
-        int len = nums.length;
-        if(len <= 1)
-            return true; 
-        int m = Integer.MIN_VALUE;
-        int[] pos = new int[len];
+//         int len = nums.length;
+//         if(len <= 1)
+//             return true; 
+//         int m = Integer.MIN_VALUE;
+//         int[] pos = new int[len];
         
-        for(int i = 0; i < len; i++){
-            if(nums[i] == 0 && m <= i)
-                return false;
+//         for(int i = 0; i < len; i++){
+//             if(nums[i] == 0 && m <= i)
+//                 return false;
             
-            pos[i] = i + nums[i];
-            m = Math.max(m, pos[i]);
-            if(pos[i] >= len - 1)
-                return true;
+//             pos[i] = i + nums[i];
+//             m = Math.max(m, pos[i]);
+//             if(pos[i] >= len - 1)
+//                 return true;
+//         }
+        
+//         return false;
+        
+        int goal = nums.length - 1;
+        for(int i = goal; i >= 0; i--){
+            if(i + nums[i] >= goal)
+                goal = i;
         }
         
-        return false;
+        return (goal == 0);
     }
 }
