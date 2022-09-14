@@ -14,24 +14,27 @@
  * }
  */
 class Solution {
-    int ans =0;
-    public int pseudoPalindromicPaths (TreeNode root) {
-        Set<Integer> nodes = new HashSet<>();
-        fun(root, nodes);
-        return ans;
+    int count = 0;
+        
+    public void preorder(TreeNode node, int path) {
+        if (node != null) {
+            // compute occurences of each digit 
+            // in the corresponding register
+            path = path ^ (1 << node.val);
+            // if it's a leaf check if the path is pseudo-palindromic
+            if (node.left == null && node.right == null) {
+                // check if at most one digit has an odd frequency
+                if ((path & (path - 1)) == 0) {
+                    ++count;
+                }
+            }
+            preorder(node.left, path);
+            preorder(node.right, path) ;
+        }
     }
-    public void fun(TreeNode cur, Set<Integer> nodes){
-        if(cur == null) return;
-        if(nodes.contains(cur.val)){
-            nodes.remove(cur.val);
-        }
-        else{
-            nodes.add(cur.val);
-        }
-        if(cur.left == null && cur.right==null){
-            if(nodes.size()<=1) ans++;
-        }
-        fun(cur.left, new HashSet(nodes));
-        fun(cur.right, new HashSet(nodes));
+
+    public int pseudoPalindromicPaths (TreeNode root) {
+        preorder(root, 0);
+        return count;
     }
 }
